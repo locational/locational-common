@@ -5,7 +5,7 @@
         <md-icon>menu</md-icon>
       </md-button>
 
-      <h2 class="md-title" style="flex: 1">Thing</h2>
+      <h2 class="md-title" style="flex: 1">{{title}}</h2>
 
     </md-toolbar>
 
@@ -14,9 +14,14 @@
 </template>
 
 <script>
-export default {
-  name: 'app'
-}
+  import get from 'lodash/get'
+
+  export default {
+    name: 'app',
+    computed: {
+      title () { return get(this.$store.state.config, 'title', 'Locational') }
+    }
+  }
 </script>
 
 <style>

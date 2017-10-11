@@ -4,8 +4,14 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   modules: {},
-  state: {},
+  state: {
+    config: {}
+  },
   getters: {},
-  mutations: {},
+  mutations: {
+    set_config: (state, config) => {
+      state.config = config
+    }
+  },
   actions: {}
 })

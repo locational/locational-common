@@ -14,6 +14,7 @@
     "unit-watch": "env BABEL_ENV=test NODE_ENV=production NODE_PATH=src ava --watch"
   },
   "dependencies": {
+    "lodash": "^4.17.4",
     "vue": "^2.4.2",
     "vue-good-table": "^1.14.1",
     "vue-material": "^0.7.5",
