@@ -18,7 +18,7 @@ const launch = async () => {
     render: h => h(App)
   })
 
-  // Simulate retrieving/inserting config from somehere
+  // Simulate retrieving/inserting config from somewhere
   const config = await fetch('/static/configs/foci.json').then(res => res.json())
   // This commit works, but doesn't display in vue-devtools
   store.commit('set_config', config)
