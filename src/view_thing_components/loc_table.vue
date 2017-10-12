@@ -10,11 +10,20 @@
 </template>
 
 <script>
+  import get from 'lodash/get'
+
   export default {
     name: 'loc_table',
     props: {
-      columns: Array,
-      rows: Array
+      data_things: Array
     },
+    computed: {
+      rows () {
+        return get(this.data_things, '[0].rows', [])
+      },
+      columns () {
+        return get(this.data_things, '[0].columns', [])
+      }
+    }
   }
 </script>
