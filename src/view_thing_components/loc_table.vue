@@ -1,7 +1,7 @@
 <template>
   <div>
     <vue-good-table
-        title="Demo Table"
+        :title="title"
         :columns="columns"
         :rows="rows"
         :paginate="true"
@@ -15,7 +15,8 @@
   export default {
     name: 'loc_table',
     props: {
-      data_things: Array
+      data_things: Array,
+      title: String,
     },
     computed: {
       rows () {

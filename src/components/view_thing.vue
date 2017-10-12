@@ -1,7 +1,6 @@
 <template>
   <div>
-    <h3>I will figure out how to render the view_thing</h3>
-    <component is="loc_table" :data_things="data_things"></component>
+    <component :is="component_type" :data_things="data_things" :title="title"></component>
   </div>
 </template>
 
@@ -16,6 +15,12 @@
     },
     components: {loc_table},
     computed: {
+      component_type () {
+        return get(this.view_thing, 'type', 'span')
+      },
+      title () {
+        return get(this.view_thing, 'title', 'Title')
+      },
       data_things () {
         return get(this.view_thing, 'data_things', [])
       }
