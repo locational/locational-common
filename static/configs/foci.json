@@ -89,7 +89,8 @@
       "columns": [
         {
           "label": "Name",
-          "field": "name"
+          "field": "name",
+          "type": "text"
         },
         {
           "label": "Age",

@@ -6,7 +6,7 @@
         <md-dialog-content>
             <md-input-container v-for="field in fields_for_form" :key="field.field">
                 <label>{{field.label}}</label>
-                <md-input v-model="fields[field.field]"></md-input>
+                <md-input v-model="fields[field.field]" :type="field.type"></md-input>
             </md-input-container>
         </md-dialog-content>
 
@@ -19,6 +19,8 @@
 </template>
 
 <script>
+  import {colums_to_form} from './form_helper'
+
   export default {
     name: 'loc_form',
     props: {
@@ -32,12 +34,7 @@
     },
     computed: {
       fields_for_form () {
-        return this.data_things[0].columns.map(col => {
-          return {
-            label: col.label,
-            field: col.field
-          }
-        })
+        return colums_to_form(this.data_things[0].columns)
       }
     },
     methods: {
@@ -47,6 +44,7 @@
       save () {
         this.close_dialog()
         // save something
+        this.$store.commit('add_data', this.fields)
       }
     }
   }
