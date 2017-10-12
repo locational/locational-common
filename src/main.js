@@ -3,6 +3,7 @@ import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.css'
 import VueGoodTable from 'vue-good-table'
 import App from './App'
+import router from './router'
 import store from './store'
 
 Vue.use(VueMaterial)
@@ -20,6 +21,7 @@ const launch = async () => {
   /* eslint-disable no-new */
   new Vue({
     el: '#app',
+    router,
     store,
     render: h => h(App)
   })
@@ -30,4 +32,4 @@ const launch = async () => {
   store.commit('set_config', config)
 }
 
-launch()
+launch().catch(console.error)

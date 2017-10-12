@@ -9,7 +9,7 @@
 
     </md-toolbar>
 
-    <h1>[INSERT APPLICATION HERE]</h1>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -19,7 +19,7 @@
   export default {
     name: 'app',
     computed: {
-      title () { return get(this.$store.state.config, 'title', 'Locational') }
+      title () { return get(this.$store.state.config, 'title', 'Locational') },
     }
   }
 </script>

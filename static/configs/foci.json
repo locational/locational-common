@@ -1,5 +1,82 @@
 {
-  "id": 1,
-  "title": "Foci tool",
-  "pageThings": []
+  "config": {
+    "id": "3433453456345",
+    "title": "Foci tool"
+  },
+  "page_things": [
+    {
+      "id": "1214141212",
+      "title": "Heading for the just-a-table page",
+      "view_things": [
+        "4534534"
+      ]
+    }
+  ],
+  "view_things": [
+    {
+      "id": "4534534",
+      "title": "Table all responses",
+      "type": "loc_table",
+      "data_things": [
+        "8349889343"
+      ]
+    }
+  ],
+  "data_view_things": [
+    {
+      "id": "8349889343",
+      "title": "First of sample_data",
+      "data_thing": [
+        "45345345345"
+      ],
+      "filters": []
+    }
+  ],
+  "data_things": [
+    {
+      "id": "45345345345",
+      "title": "Sample data",
+      "columns": [
+        {
+          "label": "Name",
+          "field": "name"
+        },
+        {
+          "label": "Age",
+          "field": "age",
+          "type": "number",
+          "html": false
+        },
+        {
+          "label": "Created On",
+          "field": "createdAt",
+          "type": "date",
+          "inputFormat": "YYYYMMDD",
+          "outputFormat": "MMM Do YY"
+        },
+        {
+          "label": "Percent",
+          "field": "score",
+          "type": "percentage",
+          "html": false
+        }
+      ],
+      "rows": [
+        {
+          "id": 1,
+          "name": "John",
+          "age": 20,
+          "createdAt": "20171031",
+          "score": 0.03343
+        },
+        {
+          "id": 2,
+          "name": "Jane",
+          "age": 24,
+          "createdAt": "20171112",
+          "score": 0.23343
+        }
+      ]
+    }
+  ]
 }
