@@ -8,7 +8,7 @@ export const config_schema = schema({
 const page_things_schema = schema({
   id: String,
   title: String,
-  view_thing: Array.of_x({
+  view_things: Array.of_x({
     id: String
   })
 })
@@ -41,7 +41,7 @@ export const data_things_schema = schema({
     label: String,
     field: String,
     '?type': String,
-    '?html': String,
+    '?html': Boolean,
     '?inputFormat': String,
     '?outputFormat': String,
   }),
