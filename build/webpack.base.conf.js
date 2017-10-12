@@ -24,7 +24,9 @@ module.exports = {
     alias: {
       'static': resolve('static'),
       'components': resolve('src/components'),
+      'view_thing_components': resolve('src/view_thing_components'),
       'models': resolve('src/models'),
+      'config': resolve('src/config')
     }
   },
   module: {

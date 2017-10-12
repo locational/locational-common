@@ -1,12 +1,13 @@
 import Vue from 'vue'
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.css'
+import 'mapbox-gl/dist/mapbox-gl.css'
 import VueGoodTable from 'vue-good-table'
 
 import App from './App'
 import router from './router'
 import store from './store'
-import {assemble_config} from './assemble_config'
+import {assemble_config} from 'config/assemble_config'
 import {main_schema} from './schemas/config_schema'
 
 Vue.use(VueMaterial)

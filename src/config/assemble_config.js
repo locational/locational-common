@@ -1,11 +1,11 @@
 // Define relations e.g. 'view_things' have 'data_things'
-const relations = [['view_things', 'data_things'], ['view_things', 'data_view_things'], ['page_things', 'view_things']]
+import CONFIG from 'config/config'
 
 function explode_ids (config) {
   let assembled = {} // write each parent back to this as its constructed
 
   // iterate the relations
-  relations.forEach(relation => {
+  CONFIG.relations.forEach(relation => {
     // establish keys
     const parent_key = relation[0] // e.g. view_things for first relation
     const child_key = relation[1] // e.g. data_things for first relation

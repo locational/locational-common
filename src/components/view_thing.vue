@@ -6,8 +6,8 @@
 
 <script>
   import get from 'lodash/get'
-  import loc_table from '../view_thing_components/loc_table.vue'
-  import loc_map from '../view_thing_components/loc_map.vue'
+  import loc_table from 'view_thing_components/loc_table.vue'
+  import loc_map from 'view_thing_components/loc_map/loc_map.vue'
 
   export default {
     name: 'view_thing',

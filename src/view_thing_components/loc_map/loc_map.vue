@@ -1,14 +1,14 @@
 <template>
-  <div></div>
+  <div id="map"></div>
 </template>
 
 <script>
-//  import mapboxgl from 'mapbox-gl'
-//  import 'mapbox-gl/dist/mapbox-gl.css'
+  import {basic_map} from 'view_thing_components/loc_map/basic_map'
 
   export default {
     name: 'loc_map',
     mounted () {
+      basic_map()
     },
     data () {
       return {}
@@ -18,5 +18,7 @@
 </script>
 
 <style scoped>
-
+ #map {
+   height: 600px;
+ }
 </style>
