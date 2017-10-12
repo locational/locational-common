@@ -1,5 +1,5 @@
 // Define relations e.g. 'view_things' have 'data_things'
-const relations = [['view_things', 'data_things'], ['view_things', 'data_view_things'], ['page_things', 'view_things']]
+const relations = [['view_things', 'data_view_things'], ['page_things', 'view_things']]
 
 function explode_ids (config) {
   let assembled = {} // write each parent back to this as its constructed
@@ -15,9 +15,9 @@ function explode_ids (config) {
 
     // for each parent_object, take the array in the child_key
     const replace_parents = parents.map(parent_object => {
-      const ids_array = parent_object[child_key]
+      const targets_to_explode = parent_object[child_key]
       const objects_array = children
-      const replaced_child_ids = replace_ids_with_objects(ids_array, objects_array)
+      const replaced_child_ids = replace_ids_with_objects(targets_to_explode, objects_array)
       parent_object[child_key] = replaced_child_ids
       return parent_object
     })
@@ -36,8 +36,12 @@ export const assemble_config = (config) => {
   return output
 }
 
-function replace_ids_with_objects (ids_array, objects_array) {
-  return ids_array.map(id => {
-    return objects_array.find(object => object.id === id)
+function replace_ids_with_objects (targets_to_explode, objects_array) {
+  return targets_to_explode.map(target => {
+    const object = objects_array.find(object => object.id === target.id)
+    return {
+      ...target,
+      ...object
+    }
   })
 }

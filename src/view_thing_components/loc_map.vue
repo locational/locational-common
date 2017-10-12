@@ -3,8 +3,8 @@
 </template>
 
 <script>
-  import mapboxgl from 'mapbox-gl';
-  import 'mapbox-gl/dist/mapbox-gl.css';
+//  import mapboxgl from 'mapbox-gl'
+//  import 'mapbox-gl/dist/mapbox-gl.css'
 
   export default {
     name: 'loc_map',

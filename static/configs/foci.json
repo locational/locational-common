@@ -8,8 +8,15 @@
       "id": "1214141212",
       "title": "Heading for this page",
       "view_things": [
-        {"id": "4534534"},
-        {"id": "45345341342"}
+        {
+          "id": "4534534"
+        },
+        {
+          "id": "45345341342"
+        },
+        {
+          "id": "452"
+        }
       ]
     }
   ],
@@ -19,7 +26,21 @@
       "title": "Table all responses",
       "type": "loc_table",
       "data_things": [
-        {"id": "45345345345"}
+        {
+          "id": "45345345345"
+        }
+      ],
+      "data_view_things": []
+    },
+    {
+      "id": "452",
+      "title": "Another table of all responses",
+      "type": "loc_table",
+      "data_things": [
+        {
+          "id": "45345345345",
+          "select": "select"
+        }
       ],
       "data_view_things": []
     },
@@ -45,7 +66,9 @@
       "id": "8349889343",
       "title": "First of sample_data",
       "data_thing": [
-        {"id":"45345345345"}
+        {
+          "id": "45345345345"
+        }
       ],
       "filters": []
     }
