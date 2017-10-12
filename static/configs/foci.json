@@ -43,8 +43,8 @@
     },
     {
       "id": "452",
-      "title": "Another table of all responses",
-      "type": "loc_table",
+      "title": "Form",
+      "type": "loc_form",
       "data_things": [
         {
           "id": "45345345345",
@@ -114,6 +114,11 @@
           "label": "geom",
           "field": "$geom",
           "type": "geometry"
+        },
+        {
+          "label": "height",
+          "field": "height",
+          "type": "number"
         }
       ],
       "rows": [

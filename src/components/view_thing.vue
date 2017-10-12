@@ -8,13 +8,14 @@
   import get from 'lodash/get'
   import loc_table from 'view_thing_components/loc_table.vue'
   import loc_map from 'view_thing_components/loc_map/loc_map.vue'
+  import loc_form from 'view_thing_components/loc_form/loc_form.vue'
 
   export default {
     name: 'view_thing',
     props: {
       view_thing: Object
     },
-    components: {loc_table, loc_map},
+    components: {loc_table, loc_map, loc_form},
     computed: {
       component_type () {
         return get(this.view_thing, 'type', 'span')
