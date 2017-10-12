@@ -24,6 +24,8 @@ const basic_map = () => {
     console.warn('🗺 Basic map error:', e)
   })
 
+  map.addControl(new mapboxgl.NavigationControl())
+
   return map
 }
 
