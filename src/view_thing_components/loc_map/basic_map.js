@@ -8,9 +8,9 @@ mapboxgl.accessToken = CONFIG.basemap.map_token
  * @param {$store} [store] - Used to set error/loading messages
  * @returns {mapboxgl.Map}
  */
-const basic_map = () => {
+const basic_map = (div_id) => {
   const map = new mapboxgl.Map({
-    container: 'map',
+    container: div_id,
     style: CONFIG.basemap.default.style,
     center: CONFIG.basemap.default.coords,
     zoom: CONFIG.basemap.default.zoom
