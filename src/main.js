@@ -8,6 +8,12 @@ import store from './store'
 Vue.use(VueMaterial)
 Vue.use(VueGoodTable)
 
+Vue.material.registerTheme('default', {
+  primary: 'amber',
+  accent: 'green',
+  warn: 'red'
+})
+
 Vue.config.productionTip = false
 
 const launch = async () => {

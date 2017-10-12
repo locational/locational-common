@@ -1,6 +1,6 @@
 <template>
   <div>
-    <md-toolbar>
+    <md-toolbar class="md-dense">
       <md-button class="md-icon-button">
         <md-icon>menu</md-icon>
       </md-button>
