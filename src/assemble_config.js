@@ -1,5 +1,5 @@
 // Define relations e.g. 'view_things' have 'data_things'
-const relations = [['view_things', 'data_view_things'], ['page_things', 'view_things']]
+const relations = [['view_things', 'data_things'], ['view_things', 'data_view_things'], ['page_things', 'view_things']]
 
 function explode_ids (config) {
   let assembled = {} // write each parent back to this as its constructed

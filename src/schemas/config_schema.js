@@ -44,8 +44,7 @@ export const data_things_schema = schema({
     '?html': Boolean,
     '?inputFormat': String,
     '?outputFormat': String,
-  }),
-  rows: Array.of_x(Object)
+  })
 })
 
 export const main_schema = schema({
