@@ -8,8 +8,8 @@
       "id": "1214141212",
       "title": "Heading for the just-a-table page",
       "view_things": [
-        "4534534",
-        "45345341342"
+        {"id": "4534534"},
+        {"id": "45345341342"}
       ]
     }
   ],
@@ -19,16 +19,23 @@
       "title": "Table all responses",
       "type": "loc_table",
       "data_things": [
-        "45345345345"
+        {"id": "45345345345"}
       ],
       "data_view_things": []
     },
     {
       "id": "45345341342",
-      "title": "Table all responses",
-      "type": "loc_table",
+      "title": "Map all responses",
+      "type": "loc_map",
       "data_things": [
-        "45345345345"
+        {
+          "id": "34234234",
+          "select": "popup"
+        },
+        {
+          "id": "45345345345",
+          "select": "select"
+        }
       ],
       "data_view_things": []
     }
@@ -38,7 +45,7 @@
       "id": "8349889343",
       "title": "First of sample_data",
       "data_thing": [
-        "45345345345"
+        {"id":"45345345345"}
       ],
       "filters": []
     }
