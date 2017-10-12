@@ -14,6 +14,7 @@
     "unit-watch": "env BABEL_ENV=test NODE_ENV=production NODE_PATH=src ava --watch"
   },
   "dependencies": {
+    "js-schema": "git+https://github.com/disarm-platform/js-schema.git",
     "lodash": "^4.17.4",
     "mapbox-gl": "^0.41.0",
     "vue": "^2.4.2",
