@@ -1,27 +1,43 @@
-const def = [['view_things', 'data_things'], ['page_things', 'view_things']] // 'view_things' have 'data_things'
+// Define relations e.g. 'view_things' have 'data_things'
+const relations = [['view_things', 'data_things'], ['view_things', 'data_view_things'], ['page_things', 'view_things']]
+
+function explode_ids (config) {
+  let assembled = {} // write each parent back to this as its constructed
+
+  // iterate the relations
+  relations.forEach(relation => {
+    // establish keys
+    const parent_key = relation[0] // e.g. view_things for first relation
+    const child_key = relation[1] // e.g. data_things for first relation
+
+    let parents = assembled[parent_key] || config[parent_key] // no mutation
+    const children = config[child_key] // reference, read-only
+
+    // for each parent_object, take the array in the child_key
+    const replace_parents = parents.map(parent_object => {
+      const ids_array = parent_object[child_key]
+      const objects_array = children
+      const replaced_child_ids = replace_ids_with_objects(ids_array, objects_array)
+      parent_object[child_key] = replaced_child_ids
+      return parent_object
+    })
+
+    // write the result back to output
+    assembled[parent_key] = replace_parents
+  })
+  return assembled
+}
 
 export const assemble_config = (config) => {
   let output = {}
-
-  for (const sub_definition of def) {
-    const src_object_name = sub_definition[0] // view_things
-    const property_with_ids_from_src_object = sub_definition[1] // data_things
-
-    // start by copying entire object across
-    output[src_object_name] = config[src_object_name]
-
-    // find the actual_objects from property_with_ids_from_src_object
-    for (const object_from_config_to_find_id_for of config[src_object_name]) {
-      // object_from_config_to_find_id_for is a view_thing
-      const ids_to_find = object_from_config_to_find_id_for[property_with_ids_from_src_object]
-
-      for (const id of ids_to_find) {
-        const found = config[property_with_ids_from_src_object].find(o => o.id === id)
-        const found_index = config[property_with_ids_from_src_object].findIndex(o => o.id === id)
-        object_from_config_to_find_id_for[property_with_ids_from_src_object][found_index] = found
-      }
-    }
-  }
-  delete output[def[0][0]]
+  const exploded = explode_ids(config)
+  output.meta = config.meta
+  output.page_things = exploded.page_things
   return output
+}
+
+function replace_ids_with_objects (ids_array, objects_array) {
+  return ids_array.map(id => {
+    return objects_array.find(object => object.id === id)
+  })
 }

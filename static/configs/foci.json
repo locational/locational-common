@@ -1,12 +1,12 @@
 {
-  "config": {
+  "meta": {
     "id": "3433453456345",
     "title": "Foci tool"
   },
   "page_things": [
     {
       "id": "1214141212",
-      "title": "Heading for the just-a-table page",
+      "title": "Heading for this page",
       "view_things": [
         "4534534",
         "45345341342"

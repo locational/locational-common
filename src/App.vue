@@ -19,7 +19,7 @@
   export default {
     name: 'app',
     computed: {
-      title () { return get(this.$store.state.config, 'title', 'Locational') },
+      title () { return get(this.$store.state.meta, 'title', 'Locational') },
     }
   }
 </script>
