@@ -12,14 +12,36 @@
       data_things: Array,
       title: String,
     },
+    watch: {
+      'data_things': 'redraw_layer'
+    },
     mounted () {
       this._map = basic_map()
-
-      const fc = render_data_thing(this.data_things[0])
-
       this._map.on('load', () => {
+        this.redraw_layer()
+      })
+    },
+    methods: {
+      redraw_layer () {
+        console.log('redraw layer')
+        for (const layer of this.data_things) {
+          this.clear_map(layer)
+          this.draw_layer(layer)
+        }
+      },
+      clear_map (layer) {
+        if (this._map.getLayer(layer.id)) {
+          this._map.removeLayer(layer.id)
+        }
+
+        if (this._map.getSource(layer.id)) {
+          this._map.removeSource(layer.id)
+        }
+      },
+      draw_layer (layer) {
+        const fc = render_data_thing(layer)
         this._map.addLayer({
-          'id': 'layer',
+          'id': layer.id,
           'type': 'circle',
           'source': {
             'type': 'geojson',
@@ -31,7 +53,7 @@
             'circle-opacity': 0.9,
           }
         })
-      })
+      }
     }
   }
 </script>
