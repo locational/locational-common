@@ -19,7 +19,7 @@
 </template>
 
 <script>
-  import {colums_to_form} from './form_helper'
+  import {colums_to_form, input_field_to_data} from './form_helper'
 
   export default {
     name: 'loc_form',
@@ -44,7 +44,7 @@
       save () {
         this.close_dialog()
         // save something
-        this.$store.commit('add_data', this.fields)
+        this.$store.commit('add_data', input_field_to_data(this.fields, this.data_things[0].columns))
       }
     }
   }
