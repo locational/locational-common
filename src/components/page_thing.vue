@@ -3,7 +3,7 @@
     <h1>I'm a page_thing, and I will figure out what view_things need to be rendered </h1>
     <h3>{{current_page_thing.title}} - {{page_thing_id}} </h3>
 
-    <view_thing v-for="view_thing_id in current_page_thing.view_things" :id="view_thing_id"></view_thing>
+    <view_thing v-for="view_thing_id in current_page_thing.view_things" :key="view_thing_id" :id="view_thing_id"></view_thing>
 
   </div>
 </template>

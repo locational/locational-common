@@ -6,7 +6,7 @@ import VueGoodTable from 'vue-good-table'
 import App from './App'
 import router from './router'
 import store from './store'
-import {assemble_config} from 'assemble_config'
+import {assemble_config} from './assemble_config'
 
 Vue.use(VueMaterial)
 Vue.use(VueGoodTable)

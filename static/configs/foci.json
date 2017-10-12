@@ -8,13 +8,23 @@
       "id": "1214141212",
       "title": "Heading for the just-a-table page",
       "view_things": [
-        "4534534"
+        "4534534",
+        "45345341342"
       ]
     }
   ],
   "view_things": [
     {
       "id": "4534534",
+      "title": "Table all responses",
+      "type": "loc_table",
+      "data_things": [
+        "45345345345"
+      ],
+      "data_view_things": []
+    },
+    {
+      "id": "45345341342",
       "title": "Table all responses",
       "type": "loc_table",
       "data_things": [
