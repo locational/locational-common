@@ -3,6 +3,8 @@
 </template>
 
 <script>
+  import get from 'lodash/get'
+
   import {basic_map} from 'view_thing_components/loc_map/basic_map'
   import {render_data_thing} from 'view_thing_components/loc_map/render_data_thing'
 
@@ -22,7 +24,14 @@
       })
 
       this.$parent.$on('parent_event', (event) => {
-        console.log('parent event handled in map', event)
+        for (const data_thing of this.data_things) {
+          const events = get(data_thing, 'events', [])
+          events.forEach(event_definition => {
+            if (event.type === event_definition.type) {
+              console.log('parent event handled in map', event)
+            }
+          })
+        }
       })
     },
     methods: {

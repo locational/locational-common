@@ -24,7 +24,7 @@
       "title": "Heading for second page",
       "view_things": [
         {
-          "id": "452"
+          "id": "4534534"
         }
       ]
     }
@@ -48,7 +48,12 @@
       "data_things": [
         {
           "id": "45345345345",
-          "select": "select"
+          "events": [
+            {
+              "type": "select",
+              "handler": "select"
+            }
+          ]
         }
       ],
       "data_view_things": []
@@ -60,7 +65,12 @@
       "data_things": [
         {
           "id": "45345345345",
-          "select": "select"
+          "events": [
+            {
+              "type": "click",
+              "handler": "select"
+            }
+          ]
         }
       ],
       "data_view_things": []

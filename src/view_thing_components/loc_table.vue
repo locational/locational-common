@@ -28,7 +28,14 @@
     },
     mounted () {
       this.$parent.$on('parent_event', (event) => {
-        console.log('parent event handled in table', event)
+        for (const data_thing of this.data_things) {
+          const events = get(data_thing, 'events', [])
+          events.forEach(event_definition => {
+            if (event.type === event_definition.type) {
+              console.log('parent event handled in table', event)
+            }
+          })
+        }
       })
     },
     methods: {
