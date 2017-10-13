@@ -36,7 +36,6 @@
     },
     methods: {
       redraw_layer () {
-        console.log('redraw layer')
         for (const layer of this.data_things) {
           this.clear_map(layer)
           this.draw_layer(layer)
