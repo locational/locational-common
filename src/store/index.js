@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import get from 'lodash/get'
+
+import { common } from 'models/common'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -29,9 +31,8 @@ export default new Vuex.Store({
   },
   actions: {
     async get_data (context, id) {
-      const res = await fetch(`/static/data/${id}.json`)
-      const json = await res.json()
-      context.commit('push_data', json)
+      const data = await common.load_from_local(id)
+      context.commit('push_data', data)
     }
   }
 })
