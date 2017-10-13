@@ -17,5 +17,11 @@ export default new Vuex.Store({
       state.config.page_things[0].view_things[0].data_things[0].rows.push(row)
     }
   },
-  actions: {}
+  actions: {
+    async get_data (context, id) {
+      const res = await fetch(`/static/data/${id}.json`)
+      const json = await res.json()
+      return json
+    }
+  }
 })

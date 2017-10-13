@@ -19,6 +19,7 @@
 </template>
 
 <script>
+  import get from 'lodash/get'
   import {colums_to_form, input_field_to_data} from './form_helper'
 
   export default {
@@ -34,7 +35,8 @@
     },
     computed: {
       fields_for_form () {
-        return colums_to_form(this.data_things[0].columns)
+        const data_thing = get(this.data_things, '[0].columns', [])
+        return colums_to_form(data_thing)
       }
     },
     methods: {

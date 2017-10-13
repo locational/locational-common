@@ -16,6 +16,11 @@
       view_thing: Object
     },
     components: {loc_table, loc_map, loc_form},
+    data () {
+      return {
+        data: []
+      }
+    },
     computed: {
       component_type () {
         return get(this.view_thing, 'type', 'span')
@@ -24,7 +29,26 @@
         return get(this.view_thing, 'title', 'Title')
       },
       data_things () {
-        return get(this.view_thing, 'data_things', [])
+        const data_things = get(this.view_thing, 'data_things', [])
+        return data_things.map(data_thing => {
+          const data = this.data.find(d => d.id === data_thing.id) || {}
+          return {
+            ...data,
+            ...data_thing
+          }
+        })
+      }
+    },
+    created () {
+      this.get_data()
+    },
+    methods: {
+      async get_data () {
+        const data_things = get(this.view_thing, 'data_things', [])
+        for (const data_thing of data_things) {
+          const data = await this.$store.dispatch('get_data', data_thing.id)
+          this.data.push(data)
+        }
       }
     }
   }
