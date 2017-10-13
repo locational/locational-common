@@ -6,7 +6,7 @@
        v-for="view_thing in view_things"
        :key="view_thing.id"
        :view_thing="view_thing"
-       @view_thing_event="handle_event"
+       :event_bus="event_bus"
     >
 
     </view_thing>
@@ -15,6 +15,8 @@
 
 <script>
   import get from 'lodash/get'
+  import Vue from 'vue'
+
   import view_thing from './view_thing.vue'
 
   export default {
@@ -22,6 +24,11 @@
     components: {view_thing},
     props: {
       page_thing_id: String
+    },
+    data () {
+      return {
+        event_bus: new Vue()
+      }
     },
     computed: {
       page_thing () {
@@ -35,11 +42,6 @@
       },
       id () {
         return get(this.page_thing, 'id', 'ID')
-      }
-    },
-    methods: {
-      handle_event (event) {
-        this.$emit('parent_event', event)
       }
     }
   }

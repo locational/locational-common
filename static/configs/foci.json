@@ -52,7 +52,11 @@
           "events": [
             {
               "type": "add_row",
-              "handler": "open_dialog"
+              "handler": "add"
+            },
+            {
+              "type": "edit",
+              "handler": "edit"
             }
           ]
         }
@@ -68,7 +72,7 @@
           "id": "d1",
           "events": [
             {
-              "type": "click",
+              "type": "select",
               "handler": "select"
             }
           ]

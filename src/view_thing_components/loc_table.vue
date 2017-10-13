@@ -20,6 +20,7 @@
   export default {
     name: 'loc_table',
     props: {
+      event_bus: Object,
       data_things: Array,
       title: String,
     },
@@ -36,29 +37,19 @@
     },
     methods: {
       add_row () {
-        this.$emit('event', {
-          type: 'add_row',
-          payload: {}
-        })
+        this.$emit('event', {})
       },
       on_click (e) {
-        this.$emit('event', {
-          type: 'click',
-          payload: {}
-        })
+        this.$emit('event', e)
       }
     },
     mounted () {
-      this.$parent.$on('parent_event', (event) => {
-        for (const data_thing of this.data_things) {
-          const events = get(data_thing, 'events', [])
-          events.forEach(event_definition => {
-            if (event.type === event_definition.type) {
-              console.log('parent event handled in table', event)
-            }
-          })
-        }
-      })
+      for (const data_thing of this.data_things) {
+        const events = get(data_thing, 'events', [])
+        events.forEach(event_definition => {
+          this.event_bus.$on(event_definition.type, this[event_definition.handler])
+        })
+      }
     }
   }
 </script>

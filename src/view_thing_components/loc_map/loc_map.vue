@@ -11,6 +11,7 @@
   export default {
     name: 'loc_map',
     props: {
+      event_bus: Object,
       data_things: Array,
       title: String,
     },
@@ -23,18 +24,17 @@
         this.redraw_layer()
       })
 
-      this.$parent.$on('parent_event', (event) => {
-        for (const data_thing of this.data_things) {
-          const events = get(data_thing, 'events', [])
-          events.forEach(event_definition => {
-            if (event.type === event_definition.type) {
-              console.log('parent event handled in map', event)
-            }
-          })
-        }
-      })
+      for (const data_thing of this.data_things) {
+        const events = get(data_thing, 'events', [])
+        events.forEach(event_definition => {
+          this.event_bus.$on(event_definition.type, this[event_definition.handler])
+        })
+      }
     },
     methods: {
+      select (e) {
+        console.log('select something from map', e)
+      },
       redraw_layer () {
         for (const layer of this.data_things) {
           this.clear_map(layer)
@@ -64,12 +64,6 @@
             'circle-radius': 10,
             'circle-opacity': 0.9,
           }
-        })
-      },
-      simulate_click () {
-        this.$emit('event', {
-          type: 'click',
-          payload: {}
         })
       }
     }

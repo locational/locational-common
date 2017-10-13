@@ -1,12 +1,21 @@
 <template>
   <div>
+      <md-input-container>
+          <label for="event_type">Event to emit</label>
+          <md-select name="event_type" id="event_type" v-model="event_type">
+              <md-option value="select">Select</md-option>
+              <md-option value="add_row">Add</md-option>
+              <md-option value="edit">Edit</md-option>
+          </md-select>
+      </md-input-container>
+
     <component
       :is="component_type"
       :data_things="data_things"
       :title="title"
+      :event_bus="event_bus"
       @event="handle_event"
     >
-
     </component>
   </div>
 </template>
@@ -20,9 +29,15 @@
   export default {
     name: 'view_thing',
     props: {
-      view_thing: Object
+      view_thing: Object,
+      event_bus: Object
     },
     components: {loc_table, loc_map, loc_form},
+    data () {
+      return {
+        event_type: 'select'
+      }
+    },
     computed: {
       component_type () {
         return get(this.view_thing, 'type', 'span')
@@ -46,9 +61,6 @@
     },
     created () {
       this.get_data()
-      this.$parent.$on('parent_event', (event) => {
-        this.$emit('parent_event', event)
-      })
     },
     methods: {
       async get_data () {
@@ -57,8 +69,8 @@
           await this.$store.dispatch('get_data', data_thing.id)
         }
       },
-      handle_event (event) {
-        this.$emit('view_thing_event', event)
+      handle_event (e) {
+        this.event_bus.$emit(this.event_type, e)
       }
     }
   }

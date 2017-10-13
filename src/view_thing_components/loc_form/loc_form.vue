@@ -25,6 +25,7 @@
   export default {
     name: 'loc_form',
     props: {
+      event_bus: Object,
       data_things: Array,
       title: String,
     },
@@ -40,19 +41,22 @@
       }
     },
     mounted () {
-      this.$parent.$on('parent_event', (event) => {
-        for (const data_thing of this.data_things) {
-          const events = get(data_thing, 'events', [])
-          events.forEach(event_definition => {
-            if (event.type === event_definition.type) {
-              console.log('parent event handled in form', event)
-              this[event_definition.handler]()
-            }
-          })
-        }
-      })
+      for (const data_thing of this.data_things) {
+        const events = get(data_thing, 'events', [])
+        events.forEach(event_definition => {
+          this.event_bus.$on(event_definition.type, this[event_definition.handler])
+        })
+      }
     },
     methods: {
+      edit (e) {
+        this.fields = e
+        this.open_dialog()
+      },
+      add () {
+        this.fields = {}
+        this.open_dialog()
+      },
       open_dialog () {
         this.$refs.dialog.open()
       },
@@ -62,18 +66,11 @@
       save () {
         this.close_dialog()
 
-        const data_thing = get(this.data_things, '[0]', {})
+        const columns = get(this.data_things, '[0].columns', [])
 
-        this.$store.commit('add_data', {
-          id: data_thing.id,
-          row: input_field_to_data(this.fields, this.data_things[0].columns)
-        })
-      },
-      simulate_click () {
-        this.$emit('event', {
-          type: 'click',
-          payload: {}
-        })
+        const data_to_emit = input_field_to_data(this.fields, columns)
+
+        this.event_bus.$emit('event', data_to_emit)
       }
     }
   }
