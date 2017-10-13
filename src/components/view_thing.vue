@@ -1,6 +1,13 @@
 <template>
   <div>
-    <component :is="component_type" :data_things="data_things" :title="title"></component>
+    <component
+      :is="component_type"
+      :data_things="data_things"
+      :title="title"
+      @event="handle_event"
+    >
+
+    </component>
   </div>
 </template>
 
@@ -39,6 +46,9 @@
     },
     created () {
       this.get_data()
+      this.$parent.$on('parent_event', (event) => {
+        this.$emit('parent_event', event)
+      })
     },
     methods: {
       async get_data () {
@@ -46,6 +56,9 @@
         for (const data_thing of data_things) {
           await this.$store.dispatch('get_data', data_thing.id)
         }
+      },
+      handle_event (event) {
+        this.$emit('view_thing_event', event)
       }
     }
   }

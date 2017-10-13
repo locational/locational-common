@@ -2,7 +2,14 @@
   <div>
     <h1>I'm a page_thing, and I will figure out what view_things need to be rendered </h1>
     <h3>{{title}} - {{id}} </h3>
-    <view_thing v-for="view_thing in view_things" :key="view_thing.id" :view_thing="view_thing"></view_thing>
+    <view_thing
+       v-for="view_thing in view_things"
+       :key="view_thing.id"
+       :view_thing="view_thing"
+       @view_thing_event="handle_event"
+    >
+
+    </view_thing>
 
   </div>
 </template>
@@ -30,6 +37,11 @@
       },
       id () {
         return get(this.current_page_thing, 'id', 'ID')
+      }
+    },
+    methods: {
+      handle_event (event) {
+        this.$emit('parent_event', event)
       }
     }
   }

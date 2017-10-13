@@ -20,6 +20,10 @@
       this._map.on('load', () => {
         this.redraw_layer()
       })
+
+      this.$parent.$on('parent_event', (event) => {
+        console.log('parent event handled in map', event)
+      })
     },
     methods: {
       redraw_layer () {
@@ -52,6 +56,12 @@
             'circle-radius': 10,
             'circle-opacity': 0.9,
           }
+        })
+      },
+      simulate_click () {
+        this.$emit('event', {
+          type: 'click',
+          payload: {}
         })
       }
     }

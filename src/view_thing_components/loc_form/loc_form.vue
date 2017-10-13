@@ -39,6 +39,11 @@
         return colums_to_form(data_thing)
       }
     },
+    mounted () {
+      this.$parent.$on('parent_event', (event) => {
+        console.log('parent event handled in map', event)
+      })
+    },
     methods: {
       close_dialog () {
         this.$refs.dialog.close()
@@ -47,6 +52,12 @@
         this.close_dialog()
         // save something
         this.$store.commit('add_data', input_field_to_data(this.fields, this.data_things[0].columns))
+      },
+      simulate_click () {
+        this.$emit('event', {
+          type: 'click',
+          payload: {}
+        })
       }
     }
   }

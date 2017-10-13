@@ -25,6 +25,19 @@
       columns () {
         return get(this.data_things, '[0].columns', [])
       }
+    },
+    mounted () {
+      this.$parent.$on('parent_event', (event) => {
+        console.log('parent event handled in table', event)
+      })
+    },
+    methods: {
+      simulate_click () {
+        this.$emit('event', {
+          type: 'click',
+          payload: {}
+        })
+      }
     }
   }
 </script>
