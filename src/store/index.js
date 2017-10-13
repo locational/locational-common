@@ -13,9 +13,9 @@ export default new Vuex.Store({
     set_config: (state, config) => {
       state.config = config
     },
-    add_data (state, row) {
-      // TODO: @refac Rewrite this beautiful line of code
-      state.config.page_things[0].view_things[0].data_things[0].rows.push(row)
+    add_data (state, {id, row}) {
+      const data_to_add_to = state.data.find(d => d.id === id)
+      data_to_add_to.rows.push(row)
     },
     push_data (state, data_to_push) {
       state.data.push(data_to_push)

@@ -57,8 +57,13 @@
       },
       save () {
         this.close_dialog()
-        // save something
-        this.$store.commit('add_data', input_field_to_data(this.fields, this.data_things[0].columns))
+
+        const data_thing = get(this.data_things, '[0]', {})
+
+        this.$store.commit('add_data', {
+          id: data_thing.id,
+          row: input_field_to_data(this.fields, this.data_things[0].columns)
+        })
       },
       simulate_click () {
         this.$emit('event', {
