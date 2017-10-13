@@ -3,7 +3,7 @@
 </template>
 
 <script>
-  import {basic_map} from 'view_thing_components/loc_map/basic_map'
+//  import {basic_map} from 'view_thing_components/loc_map/basic_map'
   import {render_data_thing} from 'view_thing_components/loc_map/render_data_thing'
 
   export default {
@@ -16,10 +16,6 @@
       'data_things': 'redraw_layer'
     },
     mounted () {
-      this._map = basic_map()
-      this._map.on('load', () => {
-        this.redraw_layer()
-      })
     },
     methods: {
       redraw_layer () {

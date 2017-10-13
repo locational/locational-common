@@ -1,6 +1,6 @@
 <template>
   <div>
-    <component :is="component_type" :data_things="data_things" :title="title"></component>
+    <component :is="component_type" :data_things="data_things" :title="title"/>
   </div>
 </template>
 

@@ -9,13 +9,13 @@
       "title": "Heading for this page",
       "view_things": [
         {
-          "id": "v1"
+          "id": "4534534"
         },
         {
-          "id": "v2"
+          "id": "45345341342"
         },
         {
-          "id": "v3"
+          "id": "452"
         }
       ]
     },
@@ -24,43 +24,47 @@
       "title": "Heading for second page",
       "view_things": [
         {
-          "id": "v3"
+          "id": "452"
         }
       ]
     }
   ],
   "view_things": [
     {
-      "id": "v1",
+      "id": "4534534",
       "title": "Table all responses",
       "type": "loc_table",
       "data_things": [
         {
-          "id": "d1"
+          "id": "45345345345"
         }
       ],
       "data_view_things": []
     },
     {
-      "id": "v3",
+      "id": "452",
       "title": "Form",
       "type": "loc_form",
       "data_things": [
         {
-          "id": "d1",
+          "id": "45345345345",
           "select": "select"
         }
       ],
       "data_view_things": []
     },
     {
-      "id": "v2",
+      "id": "45345341342",
       "title": "Map all responses",
       "type": "loc_map",
       "data_things": [
         {
-          "id": "d1",
+          "id": "45345345345",
           "select": "select"
+        },
+        {
+          "id": "34234234",
+          "select": "popup"
         }
       ],
       "data_view_things": []
@@ -68,11 +72,11 @@
   ],
   "data_view_things": [
     {
-      "id": "dv1",
+      "id": "8349889343",
       "title": "First of sample_data",
       "data_thing": [
         {
-          "id": "d1"
+          "id": "45345345345"
         }
       ],
       "filters": []
@@ -80,7 +84,7 @@
   ],
   "data_things": [
     {
-      "id": "d1",
+      "id": "45345345345",
       "title": "Sample data",
       "columns": [
         {

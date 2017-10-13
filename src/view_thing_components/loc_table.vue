@@ -5,7 +5,9 @@
         :columns="columns"
         :rows="rows"
         :paginate="true"
-        :lineNumbers="true"/>
+        :lineNumbers="true"
+        :onClick="on_click"
+    />
   </div>
 </template>
 
@@ -24,6 +26,11 @@
       },
       columns () {
         return get(this.data_things, '[0].columns', [])
+      }
+    },
+    methods: {
+      on_click (e) {
+        console.log('e', e)
       }
     }
   }
