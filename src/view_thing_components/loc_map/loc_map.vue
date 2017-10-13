@@ -65,6 +65,10 @@
             'circle-opacity': 0.9,
           }
         })
+        this._map.on('click', (e) => {
+          // TODO: @feature handle click and send some data
+          this.$emit('event', e)
+        })
       }
     }
   }
