@@ -16,17 +16,15 @@
       view_thing: Object
     },
     components: {loc_table, loc_map, loc_form},
-    data () {
-      return {
-        data: []
-      }
-    },
     computed: {
       component_type () {
         return get(this.view_thing, 'type', 'span')
       },
       title () {
         return get(this.view_thing, 'title', 'Title')
+      },
+      data () {
+        return get(this.$store.state, 'data', [])
       },
       data_things () {
         const data_things = get(this.view_thing, 'data_things', [])
@@ -46,8 +44,7 @@
       async get_data () {
         const data_things = get(this.view_thing, 'data_things', [])
         for (const data_thing of data_things) {
-          const data = await this.$store.dispatch('get_data', data_thing.id)
-          this.data.push(data)
+          await this.$store.dispatch('get_data', data_thing.id)
         }
       }
     }
