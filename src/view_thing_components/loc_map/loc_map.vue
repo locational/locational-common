@@ -16,7 +16,7 @@
       'data_things': 'redraw_layer'
     },
     mounted () {
-      this._map = basic_map()
+      this._map = basic_map('map')
       this._map.on('load', () => {
         this.redraw_layer()
       })
