@@ -15,7 +15,7 @@ Vue.use(VueGoodTable)
 
 Vue.material.registerTheme('default', {
   primary: 'amber',
-  accent: 'green',
+  accent: 'pink',
   warn: 'red'
 })
 

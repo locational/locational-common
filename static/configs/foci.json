@@ -36,7 +36,8 @@
       "type": "loc_table",
       "data_things": [
         {
-          "id": "d1"
+          "id": "d1",
+          "editable": true
         }
       ],
       "data_view_things": []

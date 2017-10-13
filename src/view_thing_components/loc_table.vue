@@ -1,5 +1,8 @@
 <template>
   <div>
+    <md-button class="md-icon-button md-raised md-accent">
+      <md-icon>add</md-icon>
+    </md-button>
     <vue-good-table
         :title="title"
         :columns="columns"
@@ -21,12 +24,15 @@
       title: String,
     },
     computed: {
+      data_thing () {
+        return this.data_things[0]
+      },
       rows () {
-        return get(this.data_things, '[0].rows', [])
+        return get(this.data_thing, 'rows', [])
       },
       columns () {
-        return get(this.data_things, '[0].columns', [])
-      }
+        return get(this.data_thing, 'columns', [])
+      },
     },
     methods: {
       on_click (e) {
