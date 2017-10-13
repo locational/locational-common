@@ -46,12 +46,16 @@
           events.forEach(event_definition => {
             if (event.type === event_definition.type) {
               console.log('parent event handled in form', event)
+              this[event_definition.handler]()
             }
           })
         }
       })
     },
     methods: {
+      open_dialog () {
+        this.$refs.dialog.open()
+      },
       close_dialog () {
         this.$refs.dialog.close()
       },

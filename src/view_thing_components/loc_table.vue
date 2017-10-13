@@ -1,6 +1,6 @@
 <template>
   <div>
-    <md-button class="md-icon-button md-raised md-accent">
+    <md-button class="md-icon-button md-raised md-accent" @click="add_row">
       <md-icon>add</md-icon>
     </md-button>
     <vue-good-table
@@ -35,6 +35,12 @@
       },
     },
     methods: {
+      add_row () {
+        this.$emit('event', {
+          type: 'add_row',
+          payload: {}
+        })
+      },
       on_click (e) {
         this.$emit('event', {
           type: 'click',

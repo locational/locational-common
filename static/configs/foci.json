@@ -51,8 +51,8 @@
           "id": "d1",
           "events": [
             {
-              "type": "select",
-              "handler": "select"
+              "type": "add_row",
+              "handler": "open_dialog"
             }
           ]
         }
