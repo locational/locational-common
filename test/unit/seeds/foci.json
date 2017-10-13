@@ -9,13 +9,13 @@
       "title": "Heading for this page",
       "view_things": [
         {
-          "id": "v1"
+          "id": "4534534"
         },
         {
-          "id": "v2"
+          "id": "45345341342"
         },
         {
-          "id": "v3"
+          "id": "452"
         }
       ]
     },
@@ -24,54 +24,47 @@
       "title": "Heading for second page",
       "view_things": [
         {
-          "id": "v3"
+          "id": "452"
         }
       ]
     }
   ],
   "view_things": [
     {
-      "id": "v1",
+      "id": "4534534",
       "title": "Table all responses",
       "type": "loc_table",
       "data_things": [
         {
-          "id": "d1",
-          "editable": true
+          "id": "45345345345"
         }
       ],
       "data_view_things": []
     },
     {
-      "id": "v3",
+      "id": "452",
       "title": "Form",
       "type": "loc_form",
       "data_things": [
         {
-          "id": "d1",
-          "events": [
-            {
-              "type": "select",
-              "handler": "select"
-            }
-          ]
+          "id": "45345345345",
+          "select": "select"
         }
       ],
       "data_view_things": []
     },
     {
-      "id": "v2",
+      "id": "45345341342",
       "title": "Map all responses",
       "type": "loc_map",
       "data_things": [
         {
-          "id": "d1",
-          "events": [
-            {
-              "type": "click",
-              "handler": "select"
-            }
-          ]
+          "id": "45345345345",
+          "select": "select"
+        },
+        {
+          "id": "34234234",
+          "select": "popup"
         }
       ],
       "data_view_things": []
@@ -79,11 +72,11 @@
   ],
   "data_view_things": [
     {
-      "id": "dv1",
+      "id": "8349889343",
       "title": "First of sample_data",
       "data_thing": [
         {
-          "id": "d1"
+          "id": "45345345345"
         }
       ],
       "filters": []
@@ -91,7 +84,7 @@
   ],
   "data_things": [
     {
-      "id": "d1",
+      "id": "45345345345",
       "title": "Sample data",
       "columns": [
         {
@@ -127,6 +120,44 @@
           "label": "height",
           "field": "height",
           "type": "number"
+        }
+      ],
+      "rows": [
+        {
+          "id": 1,
+          "name": "John",
+          "age": 20,
+          "createdAt": "20171031",
+          "score": 0.03343,
+          "$geom": {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                30.563964843750004,
+                -26.017297563851745
+              ]
+            }
+          }
+        },
+        {
+          "id": 2,
+          "name": "Jane",
+          "age": 24,
+          "createdAt": "20171112",
+          "score": 0.23343,
+          "$geom": {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                25.7958984375,
+                -26.64745870265937
+              ]
+            }
+          }
         }
       ]
     }

@@ -10,6 +10,10 @@ export default new Router({
   routes: [
     {
       path: '/',
+      redirect: '/pages'
+    },
+    {
+      path: '/pages',
       component: select_page_thing
     },
     {

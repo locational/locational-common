@@ -1,11 +1,16 @@
 <template>
   <div>
+    <md-button class="md-icon-button md-raised md-accent">
+      <md-icon>add</md-icon>
+    </md-button>
     <vue-good-table
         :title="title"
         :columns="columns"
         :rows="rows"
         :paginate="true"
-        :lineNumbers="true"/>
+        :lineNumbers="true"
+        :onClick="on_click"
+    />
   </div>
 </template>
 
@@ -19,11 +24,22 @@
       title: String,
     },
     computed: {
+      data_thing () {
+        return this.data_things[0]
+      },
       rows () {
-        return get(this.data_things, '[0].rows', [])
+        return get(this.data_thing, 'rows', [])
       },
       columns () {
-        return get(this.data_things, '[0].columns', [])
+        return get(this.data_thing, 'columns', [])
+      },
+    },
+    methods: {
+      on_click (e) {
+        this.$emit('event', {
+          type: 'click',
+          payload: {}
+        })
       }
     },
     mounted () {
@@ -37,14 +53,6 @@
           })
         }
       })
-    },
-    methods: {
-      simulate_click () {
-        this.$emit('event', {
-          type: 'click',
-          payload: {}
-        })
-      }
     }
   }
 </script>
