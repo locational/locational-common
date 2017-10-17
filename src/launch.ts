@@ -8,7 +8,6 @@ import {config_schema} from './schemas/config_schema'
 import {assemble_config} from './config/assemble_config'
 
 export const launch = async () => {
-  /* eslint-disable no-new */
   new Vue({
     el: '#app',
     router,
@@ -17,7 +16,7 @@ export const launch = async () => {
   })
 
   // Simulate retrieving/inserting config from somewhere
-  const config = await fetch('/static/configs/foci.json').then((res) => res.json())
+  const config = await fetch('/static/configs/foci.json').then((res: Response) => res.json())
 
   if (!config_schema(config)) {
     console.log(config_schema.errors(config))

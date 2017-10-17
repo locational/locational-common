@@ -22,12 +22,12 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue', '.json', '.ts'],
     alias: {
-      'static': resolve('static'),
       'components': resolve('src/components'),
-      'view_thing_components': resolve('src/view_thing_components'),
+      'config': resolve('src/config'),
       'models': resolve('src/models'),
       'schemas': resolve('src/schemas'),
-      'config': resolve('src/config')
+      'view_thing_components': resolve('src/view_thing_components'),
+      'static': resolve('static')
     }
   },
   module: {
