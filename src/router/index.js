@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
 import select_page_thing from 'components/select_page_thing.vue'
 import page_thing from 'components/page_thing.vue'
 

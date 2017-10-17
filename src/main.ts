@@ -7,8 +7,11 @@ import VueGoodTable from 'vue-good-table'
 import App from './App'
 import router from './router'
 import store from './store'
-import {assemble_config} from 'config/assemble_config'
+import {assemble_config} from './config/assemble_config'
 import {main_schema} from './schemas/config_schema'
+import {thing} from './simplest'
+
+thing({msg: '1.0'})
 
 Vue.use(VueMaterial)
 Vue.use(VueGoodTable)
@@ -31,7 +34,7 @@ const launch = async () => {
   })
 
   // Simulate retrieving/inserting config from somewhere
-  const config = await fetch('/static/configs/foci.json').then(res => res.json())
+  const config = await fetch('/static/configs/foci.json').then((res: any) => res.json())
   // This commit works, but doesn't display in vue-devtools
 
   if (!main_schema(config)) {

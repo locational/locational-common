@@ -9,19 +9,20 @@
 
     </md-toolbar>
 
-    <router-view></router-view>
+    <!--<router-view></router-view>-->
   </div>
 </template>
 
-<script>
-  import get from 'lodash/get'
+<script lang="ts">
+  import Vue from 'vue'
+  import {get} from 'lodash'
 
-  export default {
+  export default Vue.extend({
     name: 'app',
     computed: {
-      title () { return get(this.$store.state.meta, 'title', 'Locational') },
+      title (): String { return get(this.$store.state.meta, 'title', 'Locational') }
     }
-  }
+  })
 </script>
 
 <style>
