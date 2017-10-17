@@ -16,6 +16,9 @@
 <script lang="ts">
   import Vue from 'vue'
   import {get} from 'lodash'
+  import {thing} from './simplest'
+
+  thing({msg: '1'})
 
   export default Vue.extend({
     name: 'app',
