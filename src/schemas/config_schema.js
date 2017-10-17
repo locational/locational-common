@@ -47,7 +47,7 @@ export const data_things_schema = schema({
   })
 })
 
-export const main_schema = schema({
+export const config_schema = schema({
   meta: meta_schema,
   page_things: Array.of_x(page_things_schema),
   view_things: Array.of_x(view_things_schema),

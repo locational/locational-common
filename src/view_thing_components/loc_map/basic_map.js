@@ -1,5 +1,5 @@
 import mapboxgl from 'mapbox-gl'
-import CONFIG from 'config/config'
+import CONFIG from 'config/common'
 
 mapboxgl.accessToken = CONFIG.basemap.map_token
 

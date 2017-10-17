@@ -1,5 +1,5 @@
 // Define relations e.g. 'view_things' have 'data_things'
-import CONFIG from 'config/config'
+import CONFIG from 'config/common'
 
 function explode_ids (config) {
   let assembled = {} // write each parent back to this as its constructed

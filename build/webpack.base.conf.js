@@ -26,6 +26,7 @@ module.exports = {
       'components': resolve('src/components'),
       'view_thing_components': resolve('src/view_thing_components'),
       'models': resolve('src/models'),
+      'schemas': resolve('src/schemas'),
       'config': resolve('src/config')
     }
   },
