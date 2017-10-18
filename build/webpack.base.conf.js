@@ -3,6 +3,8 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
+const {CheckerPlugin} = require('awesome-typescript-loader')
+const {TsConfigPathsPlugin} = require('awesome-typescript-loader')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -21,14 +23,9 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.vue', '.json', '.ts'],
-    alias: {
-      'components': resolve('src/components'),
-      'config': resolve('src/config'),
-      'models': resolve('src/models'),
-      'schemas': resolve('src/schemas'),
-      'view_thing_components': resolve('src/view_thing_components'),
-      'static': resolve('static')
-    }
+    plugins: [
+      new TsConfigPathsPlugin(/* { configFileName, compiler } */)
+    ]
   },
   module: {
     rules: [
@@ -48,7 +45,7 @@ module.exports = {
       },
       {
         test: /\.tsx?$/,
-        loader: 'ts-loader',
+        loader: 'awesome-typescript-loader',
         exclude: /node_modules/,
         options: {
           appendTsSuffixTo: [/\.vue$/],
@@ -84,5 +81,8 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new CheckerPlugin()
+  ]
 }

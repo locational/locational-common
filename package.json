@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@turf/helpers": "^5.0.0",
+    "@types/geojson": "^1.0.5",
     "@types/lodash": "^4.14.77",
     "js-schema": "git+https://github.com/disarm-platform/js-schema.git",
     "lodash": "^4.17.4",
@@ -31,6 +32,7 @@
   "devDependencies": {
     "autoprefixer": "^7.1.2",
     "ava": "^0.22.0",
+    "awesome-typescript-loader": "^3.2.3",
     "babel": "^6.23.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^7.1.1",

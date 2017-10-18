@@ -1,16 +1,40 @@
 {
-    "compilerOptions": {
-        "outDir": "./built/",
-        "sourceMap": true,
-        "strict": false,
-        "noImplicitReturns": true,
-        "module": "es2015",
-        "moduleResolution": "node",
-        "target": "es5",
-        "allowJs": true,
-        "lib": ["es2015", "dom"]
-    },
-    "include": [
-        "./src/**/*"
-    ]
+  "compilerOptions": {
+    "outDir": "./built/",
+    "sourceMap": true,
+    "strict": false,
+    "noImplicitReturns": true,
+    "module": "es2015",
+    "moduleResolution": "node",
+    "target": "es5",
+    "allowJs": true,
+    "lib": [
+      "es2015",
+      "dom"
+    ],
+    "baseUrl": "./src",
+    "paths": {
+      "components": [
+        "/components"
+      ],
+      "config": [
+        "/config"
+      ],
+      "models": [
+        "/models"
+      ],
+      "schemas": [
+        "/schemas"
+      ],
+      "view_thing_components": [
+        "/view_thing_components"
+      ],
+      "static": [
+        "static"
+      ]
+    }
+  },
+  "include": [
+    "./src/**/*"
+  ]
 }
