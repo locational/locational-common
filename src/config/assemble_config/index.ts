@@ -1,46 +1,55 @@
 import {cloneDeep} from "lodash";
 
-function replace_id_with_object(target: any, objects_array: any[]) {
-  const found = objects_array.find(o => o.id === target.id)
+interface Relation {
+  parent_key: string,
+  child_key: string
+}
+
+export function assemble(source: any, relations: Relation[]) {
+  const cloned_source = cloneDeep(source)
+  const replaced = expand_for_all_steps(cloned_source, relations)
+
   return {
-    ...target, // keep all properties on original target
-    ...found
+    meta: source.meta,
+    page_things: replaced['page_things']
   }
 }
 
-function replace_all_ids_with_objects(source: any, steps: any[]) {
+function expand_for_all_steps(source: any, steps: any[]) {
   let replaced = {}
 
   steps.forEach(({parent_key, child_key}) => {
     const parent_objects: any[] = source[parent_key]
     const source_child_objects = replaced[child_key] || source[child_key]
-    const things = parent_objects.map(parent => {
-      const children = parent[child_key]
-      const replaced_children = children.map(child => {
-        return replace_id_with_object(child, source_child_objects)
-      })
-      return {
-        ...parent,
-        [child_key]: replaced_children
-      }
-    })
-    replaced[parent_key] = things
+
+    const step_replaced = expand_all_parent_objects_in_step(parent_objects, child_key, source_child_objects);
+    replaced[parent_key] = step_replaced
   })
 
   return replaced
 }
 
-interface Step {
-  parent_key: string,
-  child_key: string
+function expand_all_parent_objects_in_step(parent_objects: any[], child_key: string, source_child_objects: any) {
+  return parent_objects.map(parent => {
+    const replaced_children = expand_child_ids_to_objects(parent, child_key, source_child_objects);
+    return {
+      ...parent,
+      [child_key]: replaced_children
+    }
+  })
 }
 
-export function assemble(source: any, steps: Step[]) {
-  const cloned_source = cloneDeep(source)
-  const replaced = replace_all_ids_with_objects(cloned_source, steps)
+function expand_child_ids_to_objects(parent: any, child_key: string, source_child_objects: any[]) {
+  const children = parent[child_key]
+  return children.map(child => {
+    return find_and_attach_properties(child, source_child_objects)
+  })
+}
 
+function find_and_attach_properties(target: any, objects_array: any[]) {
+  const found = objects_array.find(o => o.id === target.id)
   return {
-    meta: source.meta,
-    page_things: replaced['page_things']
+    ...target, // keep all properties on original target
+    ...found   // and extend with the full object, overwriting 'id' in process
   }
 }
