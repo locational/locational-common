@@ -9,9 +9,9 @@
     "start": "npm run dev",
     "build": "node build/build.js",
     "lint": "eslint --ext .js,.vue src",
-    "unit": "env BABEL_ENV=test NODE_ENV=production NODE_PATH=src ava",
-    "unit-cov": "env BABEL_ENV=test NODE_ENV=production NODE_PATH=src nyc ava --verbose",
-    "unit-watch": "env BABEL_ENV=test NODE_ENV=production NODE_PATH=src ava --watch"
+    "unit": "env BABEL_ENV=test NODE_ENV=production NODE_PATH=src tsc && ava",
+    "unit-cov": "env BABEL_ENV=test NODE_ENV=production NODE_PATH=src nyc tsc && ava --verbose",
+    "unit-watch": "env BABEL_ENV=test NODE_ENV=production NODE_PATH=src tsc && ava --watch"
   },
   "dependencies": {
     "@turf/helpers": "^5.0.0",
