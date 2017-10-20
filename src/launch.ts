@@ -23,8 +23,14 @@ export const launch = async () => {
     return console.error('Invalid schema for config')
   }
 
-  const assembled_config = assemble(config)
+  const steps = [
+    {parent_key: 'view_things', child_key: 'data_things'},
+    {parent_key: 'page_things', child_key: 'view_things'}
+  ]
 
-  // This commit works, but doesn't display in vue-devtools
+  const assembled_config = assemble(config, steps)
+
+  // This commit executes successfully, but doesn't display
+  // in vue-devtools timeline due to timing
   store.commit('set_config', assembled_config)
 }

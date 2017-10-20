@@ -7,12 +7,8 @@ function replace_id_with_object(target: any, objects_array: any[]) {
     ...found
   }
 }
-const steps = [
-  {parent_key: 'view_things', child_key: 'data_things'},
-  {parent_key: 'page_things', child_key: 'view_things'}
-]
 
-function replace_all_ids_with_objects(source: any) {
+function replace_all_ids_with_objects(source: any, steps: any[]) {
   let replaced = {}
 
   steps.forEach(({parent_key, child_key}) => {
@@ -34,9 +30,14 @@ function replace_all_ids_with_objects(source: any) {
   return replaced
 }
 
-export function assemble(source: any) {
+interface Step {
+  parent_key: string,
+  child_key: string
+}
+
+export function assemble(source: any, steps: Step[]) {
   const cloned_source = cloneDeep(source)
-  const replaced = replace_all_ids_with_objects(cloned_source)
+  const replaced = replace_all_ids_with_objects(cloned_source, steps)
 
   return {
     meta: source.meta,
