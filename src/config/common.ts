@@ -1,8 +1,8 @@
 export default {
-  relations: [['view_things', 'data_things'], ['view_things', 'data_view_things'], ['page_things', 'view_things']],
+  config_relations: [['view_things', 'data_things'], ['view_things', 'data_view_things'], ['page_things', 'view_things']],
   basemap: {
     // Middle of southern Africa, start point for zooming in
-    default: {
+    default_centre: {
       style: 'mapbox://styles/mapbox/streets-v9',
       coords: [22.63977015806131, -25.276453102086563],
       zoom: 4

@@ -14,17 +14,19 @@
 </template>
 
 <script lang="ts">
-  import Vue from 'vue'
   import {get} from 'lodash'
+  import {thing} from 'simplest'
 
-  export default Vue.extend({
+  thing({msg: '1'})
+
+  export default {
     name: 'app',
     computed: {
-      title () : string {
+      title (): string {
         return get(this.$store.state, 'config.meta.title', 'Locational')
       }
     }
-  })
+  }
 </script>
 
 <style>

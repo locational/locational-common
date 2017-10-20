@@ -19,9 +19,6 @@ export const view_things_schema = schema({
   type: String,
   data_things: Array.of_x({
     id: String
-  }),
-  data_view_things: Array.of_x({
-    id: String
   })
 })
 

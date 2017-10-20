@@ -11,9 +11,9 @@ mapboxgl.accessToken = CONFIG.basemap.map_token
 const basic_map = (div_id) => {
   const map = new mapboxgl.Map({
     container: div_id,
-    style: CONFIG.basemap.default.style,
-    center: CONFIG.basemap.default.coords,
-    zoom: CONFIG.basemap.default.zoom
+    style: CONFIG.basemap.default_centre.style,
+    center: CONFIG.basemap.default_centre.coords,
+    zoom: CONFIG.basemap.default_centre.zoom
   })
 
   // disable zooming with mouse scroll. now you can scroll

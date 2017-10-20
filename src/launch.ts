@@ -5,7 +5,7 @@ import router from './router'
 import store from './store'
 
 import {config_schema} from './schemas/config_schema'
-import {assemble_config} from './config/assemble_config'
+import {assemble} from "./config/assemble_config/index";
 
 export const launch = async () => {
   new Vue({
@@ -23,7 +23,7 @@ export const launch = async () => {
     return console.error('Invalid schema for config')
   }
 
-  const assembled_config = assemble_config(config)
+  const assembled_config = assemble(config)
 
   // This commit works, but doesn't display in vue-devtools
   store.commit('set_config', assembled_config)
