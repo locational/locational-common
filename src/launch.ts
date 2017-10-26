@@ -1,11 +1,11 @@
 import Vue from 'vue'
 
-import App from './App.vue'
-import router from './router'
-import store from './store'
+import App from './app_thing/App.vue'
+import router from './app_thing/router'
+import store from './view_things/store'
 
-import {config_schema} from './schemas/config_schema'
-import {assemble} from "./config/assemble_config/index";
+import {config_schema} from './app_thing/schemas/config_schema'
+import {assemble} from "./app_thing/config/assemble_config/index";
 
 export const launch = async () => {
   new Vue({

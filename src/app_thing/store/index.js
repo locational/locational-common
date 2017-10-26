@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import get from 'lodash/get'
 
-import { common } from 'models/common'
+import { common } from 'data_things/models/common'
 Vue.use(Vuex)
 
 export default new Vuex.Store({

@@ -15,9 +15,6 @@
 
 <script lang="ts">
   import {get} from 'lodash'
-  import {thing} from 'simplest'
-
-  thing({msg: '1'})
 
   export default {
     name: 'app',

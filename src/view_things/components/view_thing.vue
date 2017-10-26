@@ -22,9 +22,9 @@
 
 <script>
   import get from 'lodash/get'
-  import loc_table from 'view_thing_components/loc_table.vue'
-  import loc_map from 'view_thing_components/loc_map/loc_map.vue'
-  import loc_form from 'view_thing_components/loc_form/loc_form.vue'
+  import loc_table from 'view_things/components/loc_table.vue'
+  import loc_map from 'view_things/components/loc_map/loc_map.vue'
+  import loc_form from 'view_things/components/loc_form/loc_form.vue'
 
   export default {
     name: 'view_thing',
