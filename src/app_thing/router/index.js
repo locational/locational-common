@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import select_page_thing from 'page_things/components/select_page_thing.vue'
-import page_thing from 'page_things/components/page_thing.vue'
+import page_thing from 'page_things/page_thing.vue'
 
 Vue.use(Router)
 

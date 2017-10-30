@@ -17,7 +17,7 @@
   import get from 'lodash/get'
   import Vue from 'vue'
 
-  import view_thing from '../../view_things/components/view_thing.vue'
+  import view_thing from '../view_things/view_thing.vue'
 
   export default {
     name: 'page_thing',
