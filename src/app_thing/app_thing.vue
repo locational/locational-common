@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts">
-  import {get} from 'lodash'
+  import get from 'lodash.get'
 
   export default {
     name: 'app',

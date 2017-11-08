@@ -19,7 +19,7 @@
 </template>
 
 <script>
-  import get from 'lodash/get'
+  import get from 'lodash.get'
   import {colums_to_form, input_field_to_data} from './form_helper'
 
   export default {

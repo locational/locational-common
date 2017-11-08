@@ -14,7 +14,7 @@
 </template>
 
 <script>
-  import get from 'lodash/get'
+  import get from 'lodash.get'
   import Vue from 'vue'
 
   import view_thing from '../view_things/view_thing.vue'

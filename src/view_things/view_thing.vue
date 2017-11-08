@@ -21,7 +21,7 @@
 </template>
 
 <script>
-  import get from 'lodash/get'
+  import get from 'lodash.get'
   import loc_table from 'view_things/components/loc_table.vue'
   import loc_map from 'view_things/components/loc_map/loc_map.vue'
   import loc_form from 'view_things/components/loc_form/loc_form.vue'

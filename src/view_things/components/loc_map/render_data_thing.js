@@ -1,5 +1,5 @@
 import { featureCollection } from '@turf/helpers'
-import get from 'lodash/get'
+import get from 'lodash.get'
 
 export const render_data_thing = (data_thing) => {
   const rows = get(data_thing, 'rows', [])
