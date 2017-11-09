@@ -12,7 +12,8 @@
 
 * [ ]  create some simple sample data - few tens of rows max
 * [ ]  write text description of a few specific aggregations we've already done (e.g. 1 simple, 1 with denominator, 1 with a dependency)
+* [ ]  write tests for each - not tied to any specific implementation
 * [ ]  try a general codification of the description of each
-* [ ]  pick a couple of the libraries above and describe the aggregation in their specific format
+* [ ]  pick one of the libraries above and describe the aggregation in their specific format (Runkit + ava?, or other approach with zero time on UI)
 
 
