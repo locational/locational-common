@@ -2,7 +2,6 @@ import Vue from 'vue'
 
 import App from './components/shell.vue'
 import router from './router/index'
-import store from './store/index'
 
 import {config_schema} from './schemas/config_schema'
 
@@ -24,7 +23,8 @@ export const launch = async () => {
 
   const assembled_config = {} // Load config from store - don't pre-assemble
 
-  store.commit('set_config', assembled_config)
+  // create own store (fruitplate?)
+  // commit into our own store (not Vuex) the whole config, load all data, etc.
 
   const props = {
     app_config: {title: "Brilliant title"}
@@ -33,7 +33,6 @@ export const launch = async () => {
   new Vue({
     el: '#app',
     router,
-    store,
     props,
     render: h => h(App)
   })
