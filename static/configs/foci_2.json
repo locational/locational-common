@@ -24,6 +24,18 @@
           "id": "table_1",
           "editable": true
         }
+      ],
+      "steps": [
+        {
+          "type": "map",
+          "expr": "cases / 2",
+          "output_field": "cases_divided_by_two"
+        },
+        {
+          "type": "map",
+          "expr": "random(cases)",
+          "output_field": "random_field"
+        }
       ]
     }
   ],
@@ -41,6 +53,16 @@
         {
           "label": "Cases",
           "field": "cases",
+          "type": "number"
+        },
+        {
+          "label": "Cases divided by 2",
+          "field": "cases_divided_by_two",
+          "type": "number"
+        },
+        {
+          "label": "Random",
+          "field": "random_field",
           "type": "number"
         },
         {

@@ -20,8 +20,8 @@
       "config": [
         "/config"
       ],
-      "models": [
-        "/models"
+      "pipeline": [
+        "/pipeline"
       ],
       "schemas": [
         "/schemas"

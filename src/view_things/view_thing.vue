@@ -11,7 +11,7 @@
 
     <component
       :is="component_type"
-      :data_things="data_things"
+      :data_things="transform_data(data_things)"
       :title="title"
       :event_bus="event_bus"
       @event="handle_event"
@@ -25,6 +25,7 @@
   import loc_table from 'view_things/components/loc_table.vue'
   import loc_map from 'view_things/components/loc_map/loc_map.vue'
   import loc_form from 'view_things/components/loc_form/loc_form.vue'
+  import { transform } from 'pipeline/pipeline'
 
   export default {
     name: 'view_thing',
@@ -71,6 +72,22 @@
       },
       handle_event (e) {
         this.event_bus.$emit(this.event_type, e)
+      },
+      transform_data (data_things) {
+        const steps = this.view_thing.steps
+
+        return data_things.map(data_thing => {
+          let rows = []
+
+          if (data_thing.hasOwnProperty('rows')) {
+            rows = transform(data_thing.rows, steps)
+          }
+
+          return {
+            ...data_thing,
+            rows
+          }
+        })
       }
     }
   }
