@@ -1,8 +1,8 @@
 <template>
   <div>
-    <md-button class="md-icon-button md-raised md-accent" @click="add_row">
-      <md-icon>add</md-icon>
-    </md-button>
+    <!--<md-button class="md-icon-button md-raised md-accent" @click="add_row">-->
+      <!--<md-icon>add</md-icon>-->
+    <!--</md-button>-->
     <vue-good-table
         :title="title"
         :columns="columns"

@@ -7,6 +7,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   modules: {},
   state: {
+    data: [],
     config: {},
   },
   getters: {
@@ -18,6 +19,16 @@ export default new Vuex.Store({
   mutations: {
     set_config: (state, config) => {
       state.config = config
+    },
+    set_data: (state, data) => {
+      state.data.push(data)
+    }
+  },
+  actions: {
+    get_data: async (context, id) => {
+      const res = await fetch(`/static/data/${id}.json`)
+      const data = await res.json()
+      context.commit('set_data', data)
     }
   }
 })

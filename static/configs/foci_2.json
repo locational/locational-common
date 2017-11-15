@@ -1,0 +1,54 @@
+{
+  "meta": {
+    "id": "foci_tool",
+    "title": "New and Improved Foci tool"
+  },
+  "page_things": [
+    {
+      "id": "page_thing_1",
+      "title": "Our first page",
+      "view_things": [
+        {
+          "id": "view_table_1"
+        }
+      ]
+    }
+  ],
+  "view_things": [
+    {
+      "id": "view_table_1",
+      "title": "Table of foci",
+      "type": "loc_table",
+      "data_things": [
+        {
+          "id": "table_1",
+          "editable": true
+        }
+      ]
+    }
+  ],
+  "data_view_things": [],
+  "data_things": [
+    {
+      "id": "table_1",
+      "title": "List of foci",
+      "columns": [
+        {
+          "label": "Id",
+          "field": "id",
+          "type": "text"
+        },
+        {
+          "label": "Cases",
+          "field": "cases",
+          "type": "number"
+        },
+        {
+          "label": "geom",
+          "field": "$geom",
+          "type": "geometry"
+        }
+      ]
+    }
+  ]
+}

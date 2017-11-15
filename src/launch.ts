@@ -16,7 +16,7 @@ export const launch = async () => {
   })
 
   // Simulate retrieving/inserting config from somewhere
-  const config = await fetch('/static/configs/foci.json').then((res: Response) => res.json())
+  const config = await fetch('/static/configs/foci_2.json').then((res: Response) => res.json())
 
   if (!config_schema(config)) {
     console.log(config_schema.errors(config))

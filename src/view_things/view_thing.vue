@@ -1,13 +1,13 @@
 <template>
   <div>
-      <md-input-container>
-          <label for="event_type">Event to emit</label>
-          <md-select name="event_type" id="event_type" v-model="event_type">
-              <md-option value="select">Select</md-option>
-              <md-option value="add_row">Add</md-option>
-              <md-option value="edit">Edit</md-option>
-          </md-select>
-      </md-input-container>
+      <!--<md-input-container>-->
+          <!--<label for="event_type">Event to emit</label>-->
+          <!--<md-select name="event_type" id="event_type" v-model="event_type">-->
+              <!--<md-option value="select">Select</md-option>-->
+              <!--<md-option value="add_row">Add</md-option>-->
+              <!--<md-option value="edit">Edit</md-option>-->
+          <!--</md-select>-->
+      <!--</md-input-container>-->
 
     <component
       :is="component_type"

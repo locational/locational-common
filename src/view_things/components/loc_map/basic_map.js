@@ -1,10 +1,6 @@
 import mapboxgl from 'mapbox-gl'
 import CONFIG from 'app_thing/config/common'
 
-import intersect from '@turf/intersect'
-
-console.log(intersect)
-
 mapboxgl.accessToken = CONFIG.basemap.map_token
 
 /**
