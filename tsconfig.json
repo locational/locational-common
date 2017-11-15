@@ -23,6 +23,9 @@
       "pipeline": [
         "/pipeline"
       ],
+      "data_shaper": [
+        "/data_shaper"
+      ],
       "schemas": [
         "/schemas"
       ],

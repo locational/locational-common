@@ -10,6 +10,9 @@
       "view_things": [
         {
           "id": "view_table_1"
+        },
+        {
+          "id": "view_table_2"
         }
       ]
     }
@@ -17,7 +20,7 @@
   "view_things": [
     {
       "id": "view_table_1",
-      "title": "Table of foci",
+      "title": "Tranformed Table of foci",
       "type": "loc_table",
       "data_things": [
         {
@@ -37,7 +40,19 @@
           "output_field": "random_field"
         }
       ]
+    },
+    {
+      "id": "view_table_2",
+      "title": "Table of foci",
+      "type": "loc_table",
+      "data_things": [
+        {
+          "id": "table_1",
+          "editable": true
+        }
+      ]
     }
+
   ],
   "data_view_things": [],
   "data_things": [

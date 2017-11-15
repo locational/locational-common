@@ -77,16 +77,17 @@
         const steps = this.view_thing.steps
 
         return data_things.map(data_thing => {
-          let rows = []
-
           if (data_thing.hasOwnProperty('rows')) {
-            rows = transform(data_thing.rows, steps)
+            data_thing.rows = transform(data_thing.rows, steps)
+            return data_thing
           }
 
-          return {
-            ...data_thing,
-            rows
+          if (!data_thing.hasOwnProperty('steps')) {
+            return data_thing
           }
+
+          data_thing.rows = []
+          return data_thing
         })
       }
     }
