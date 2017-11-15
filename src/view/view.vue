@@ -1,13 +1,7 @@
 <template>
   <div>
-      <!--<md-input-container>-->
-          <!--<label for="event_type">Event to emit</label>-->
-          <!--<md-select name="event_type" id="event_type" v-model="event_type">-->
-              <!--<md-option value="select">Select</md-option>-->
-              <!--<md-option value="add_row">Add</md-option>-->
-              <!--<md-option value="edit">Edit</md-option>-->
-          <!--</md-select>-->
-      <!--</md-input-container>-->
+
+    <controls></controls>
 
     <component
       :is="component_type"
@@ -17,28 +11,29 @@
       @event="handle_event"
     >
     </component>
+
+
   </div>
 </template>
 
 <script>
-  import get from 'lodash.get'
-  import loc_table from 'view_things/components/loc_table.vue'
-  import loc_map from 'view_things/components/loc_map/loc_map.vue'
-  import loc_form from 'view_things/components/loc_form/loc_form.vue'
-  import { transform } from 'pipeline/pipeline'
+  import {get} from 'lodash'
+
+  import controls from 'view/components/controls'
+  import loc_table from 'components/table/table.vue'
+  import loc_map from 'components/map/map.vue'
+  import loc_form from 'components/form/form.vue'
+
+  import { transform } from 'data_processor/pipeline/pipeline'
 
   export default {
     name: 'view_thing',
     props: {
       view_thing: Object,
-      event_bus: Object
+      event_bus: Object, // This is key - link to fruitplate/store, subscriptions, etc.
+      data: Object
     },
-    components: {loc_table, loc_map, loc_form},
-    data () {
-      return {
-        event_type: 'select'
-      }
-    },
+    components: {controls, loc_table, loc_map, loc_form},
     computed: {
       component_type () {
         return get(this.view_thing, 'type', 'span')

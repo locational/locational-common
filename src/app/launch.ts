@@ -1,19 +1,13 @@
 import Vue from 'vue'
 
-import App from './app_thing/app_thing.vue'
-import router from './app_thing/router'
-import store from './view_things/store'
+import App from './components/shell.vue'
+import router from './router/index'
+import store from './store/index'
 
-import {config_schema} from './app_thing/schemas/config_schema'
-import {assemble} from "./app_thing/config/assemble_config/index";
+import {config_schema} from './schemas/config_schema'
 
 export const launch = async () => {
-  new Vue({
-    el: '#app',
-    router,
-    store,
-    render: h => h(App)
-  })
+
 
   // Simulate retrieving/inserting config from somewhere
   const config = await fetch('/static/configs/foci_2.json').then((res: Response) => res.json())
@@ -28,9 +22,20 @@ export const launch = async () => {
     {parent_key: 'page_things', child_key: 'view_things'}
   ]
 
-  const assembled_config = assemble(config, relations)
+  const assembled_config = {} // Load config from store - don't pre-assemble
 
-  // This commit executes successfully, but doesn't display
-  // in vue-devtools timeline due to timing
   store.commit('set_config', assembled_config)
+
+  const props = {
+    app_config: {title: "Brilliant title"}
+  }
+
+  new Vue({
+    el: '#app',
+    router,
+    store,
+    props,
+    render: h => h(App)
+  })
+
 }

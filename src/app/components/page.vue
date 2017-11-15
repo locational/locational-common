@@ -8,40 +8,30 @@
        :view_thing="view_thing"
        :event_bus="event_bus"
     >
-
     </view_thing>
   </div>
 </template>
 
 <script>
   import get from 'lodash.get'
-  import Vue from 'vue'
 
-  import view_thing from '../view_things/view_thing.vue'
+  import view_thing from '../../view/view.vue'
 
   export default {
     name: 'page_thing',
     components: {view_thing},
     props: {
-      page_thing_id: String
-    },
-    data () {
-      return {
-        event_bus: new Vue()
-      }
+      page_thing_configuration: Object
     },
     computed: {
-      page_thing () {
-        return this.$store.getters['current_page_thing'](this.page_thing_id)
-      },
       view_things () {
-        return get(this.page_thing, 'view_things', [])
+        return get(this.page_thing_configuration, 'view_things', [])
       },
       title () {
-        return get(this.page_thing, 'title', 'Title')
+        return get(this.page_thing_configuration, 'title', 'Title')
       },
       id () {
-        return get(this.page_thing, 'id', 'ID')
+        return get(this.page_thing_configuration, 'id', 'ID')
       }
     }
   }

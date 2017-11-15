@@ -1,5 +1,4 @@
 export default {
-  config_relations: [['view_things', 'data_things'], ['view_things', 'data_view_things'], ['page_things', 'view_things']],
   basemap: {
     // Middle of southern Africa, start point for zooming in
     default_centre: {

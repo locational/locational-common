@@ -3,7 +3,7 @@ import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.css'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import VueGoodTable from 'vue-good-table'
-import { launch } from './launch'
+import { launch } from './app/launch'
 
 Vue.use(VueMaterial)
 Vue.use(VueGoodTable)

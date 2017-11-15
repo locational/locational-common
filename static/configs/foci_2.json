@@ -3,59 +3,49 @@
     "id": "foci_tool",
     "title": "New and Improved Foci tool"
   },
-  "page_things": [
+  "pages": [
     {
       "id": "page_thing_1",
       "title": "Our first page",
-      "view_things": [
+      "views": [
         {
-          "id": "view_table_1"
+          "id": "view_table_1",
+          "title": "Tranformed Table of foci",
+          "type": "loc_table",
+          "data_sources": [
+            {
+              "id": "@table_1",
+              "editable": true
+            }
+          ],
+          "steps": [
+            {
+              "type": "map",
+              "expr": "cases / 2",
+              "output_field": "cases_divided_by_two"
+            },
+            {
+              "type": "map",
+              "expr": "random(cases)",
+              "output_field": "random_field"
+            }
+          ]
         },
         {
-          "id": "view_table_2"
+          "id": "view_table_2",
+          "title": "Table of foci",
+          "type": "loc_table",
+          "data_sources": [
+            {
+              "id": "table_1",
+              "editable": true
+            }
+          ]
         }
       ]
     }
   ],
-  "view_things": [
-    {
-      "id": "view_table_1",
-      "title": "Tranformed Table of foci",
-      "type": "loc_table",
-      "data_things": [
-        {
-          "id": "table_1",
-          "editable": true
-        }
-      ],
-      "steps": [
-        {
-          "type": "map",
-          "expr": "cases / 2",
-          "output_field": "cases_divided_by_two"
-        },
-        {
-          "type": "map",
-          "expr": "random(cases)",
-          "output_field": "random_field"
-        }
-      ]
-    },
-    {
-      "id": "view_table_2",
-      "title": "Table of foci",
-      "type": "loc_table",
-      "data_things": [
-        {
-          "id": "table_1",
-          "editable": true
-        }
-      ]
-    }
-
-  ],
-  "data_view_things": [],
-  "data_things": [
+  "data_sources": [
     {
       "id": "table_1",
       "title": "List of foci",

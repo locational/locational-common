@@ -18,9 +18,12 @@
 
   export default {
     name: 'app',
+    props: {
+      app_config: Object
+    },
     computed: {
       title (): string {
-        return get(this.$store.state, 'config.meta.title', 'Locational')
+        return get(this.app_config, 'title', 'Locational')
       }
     }
   }

@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import select_page_thing from 'page_things/components/select_page_thing.vue'
-import page_thing from 'page_things/page_thing.vue'
+import page_list from 'app/components/navigation.vue'
+import page from 'app/components/page.vue'
 
 Vue.use(Router)
 
@@ -15,11 +15,12 @@ export default new Router({
     },
     {
       path: '/pages',
-      component: select_page_thing
+      component: page_list,
+      // props: true
     },
     {
       path: '/pages/:page_thing_id',
-      component: page_thing,
+      component: page,
       props: true
     }
   ]

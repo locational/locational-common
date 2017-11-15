@@ -1,6 +1,6 @@
 import test from 'ava'
 
-import {common} from 'data_things/models/common'
+import {common} from 'data_processor/models/common'
 
 test('commonModel should exist', t => {
   const actual = typeof common

@@ -1,135 +1,135 @@
-{
-  "meta": {
+[
+  {
     "id": "3433453456345",
+    "type": "meta",
     "title": "Foci tool"
   },
-  "page_things": [
-    {
-      "id": "1214141212",
-      "title": "Heading for this page",
-      "view_things": [
-        {
-          "id": "v1"
-        },
-        {
-          "id": "v2"
-        },
-        {
-          "id": "v3"
-        }
-      ]
-    },
-    {
-      "id": "1214141213",
-      "title": "Heading for second page",
-      "view_things": [
-        {
-          "id": "v3"
-        }
-      ]
-    }
-  ],
-  "view_things": [
-    {
-      "id": "v1",
-      "title": "Table all responses",
-      "type": "loc_table",
-      "data_things": [
-        {
-          "id": "d1",
-          "editable": true
-        }
-      ]
-    },
-    {
-      "id": "v3",
-      "title": "Form",
-      "type": "loc_form",
-      "data_things": [
-        {
-          "id": "d1",
-          "events": [
-            {
-              "type": "add_row",
-              "handler": "add"
-            },
-            {
-              "type": "edit",
-              "handler": "edit"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "v2",
-      "title": "Map all responses",
-      "type": "loc_map",
-      "data_things": [
-        {
-          "id": "d1",
-          "events": [
-            {
-              "type": "select",
-              "handler": "select"
-            }
-          ]
-        }
-      ]
-    }
-  ],
-  "data_view_things": [
-    {
-      "id": "dv1",
-      "title": "First of sample_data",
-      "data_thing": [
-        {
-          "id": "d1"
-        }
-      ],
-      "filters": []
-    }
-  ],
-  "data_things": [
-    {
-      "id": "d1",
-      "title": "Sample data",
-      "columns": [
-        {
-          "label": "Name",
-          "field": "name",
-          "type": "text"
-        },
-        {
-          "label": "Age",
-          "field": "age",
-          "type": "number",
-          "html": false
-        },
-        {
-          "label": "Created On",
-          "field": "createdAt",
-          "type": "date",
-          "inputFormat": "YYYYMMDD",
-          "outputFormat": "MMM Do YY"
-        },
-        {
-          "label": "Percent",
-          "field": "score",
-          "type": "percentage",
-          "html": false
-        },
-        {
-          "label": "geom",
-          "field": "$geom",
-          "type": "geometry"
-        },
-        {
-          "label": "height",
-          "field": "height",
-          "type": "number"
-        }
-      ]
-    }
-  ]
-}
+  {
+    "id": "1214141212",
+    "type": "page_thing",
+    "title": "Heading for this page",
+    "view_things": [
+      {
+        "id": "v1"
+      },
+      {
+        "id": "v2"
+      },
+      {
+        "id": "v3"
+      }
+    ]
+  },
+  {
+    "id": "1214141213",
+    "type": "page_thing",
+    "title": "Heading for second page",
+    "view_things": [
+      {
+        "id": "v3"
+      }
+    ]
+  },
+  {
+    "id": "v1",
+    "type": "view_thing",
+    "title": "Table all responses",
+    "component": "loc_table",
+    "data_things": [
+      {
+        "id": "d1",
+        "editable": true
+      }
+    ]
+  },
+  {
+    "id": "v3",
+    "type": "view_thing",
+    "title": "Form",
+    "component": "loc_form",
+    "data_things": [
+      {
+        "id": "d1",
+        "events": [
+          {
+            "type": "add_row",
+            "handler": "add"
+          },
+          {
+            "type": "edit",
+            "handler": "edit"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "v2",
+    "type": "view_thing",
+    "title": "Map all responses",
+    "component": "loc_map",
+    "data_things": [
+      {
+        "id": "d1",
+        "events": [
+          {
+            "type": "select",
+            "handler": "select"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dv1",
+    "type": "data_view",
+    "title": "First of sample_data",
+    "data_thing": [
+      {
+        "id": "d1"
+      }
+    ],
+    "filters": []
+  },
+  {
+    "id": "d1",
+    "type": "data",
+    "title": "Sample data",
+    "columns": [
+      {
+        "label": "Name",
+        "field": "name",
+        "type": "text"
+      },
+      {
+        "label": "Age",
+        "field": "age",
+        "type": "number",
+        "html": false
+      },
+      {
+        "label": "Created On",
+        "field": "createdAt",
+        "type": "date",
+        "inputFormat": "YYYYMMDD",
+        "outputFormat": "MMM Do YY"
+      },
+      {
+        "label": "Percent",
+        "field": "score",
+        "type": "percentage",
+        "html": false
+      },
+      {
+        "label": "geom",
+        "field": "$geom",
+        "type": "geometry"
+      },
+      {
+        "label": "height",
+        "field": "height",
+        "type": "number"
+      }
+    ]
+  }
+]
