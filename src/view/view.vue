@@ -23,6 +23,7 @@
   import loc_table from 'components/table/table.vue'
   import loc_map from 'components/map/map.vue'
   import loc_form from 'components/form/form.vue'
+  import loc_chart from 'components/chart/chart'
 
   import { transform } from 'data_processor/pipeline/pipeline'
 
@@ -33,7 +34,7 @@
       event_bus: Object, // This is key - link to fruitplate/store, subscriptions, etc.
       data: Object
     },
-    components: {controls, loc_table, loc_map, loc_form},
+    components: {controls, loc_table, loc_map, loc_form, loc_chart},
     computed: {
       component_type () {
         return get(this.view_thing, 'type', 'span')
