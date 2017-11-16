@@ -74,18 +74,16 @@
         this.event_bus.$emit(this.event_type, e)
       },
       transform_data (data_things) {
-        const steps = this.view_thing.steps
-
+        const steps = this.view_thing.steps || []
         return data_things.map(data_thing => {
-          if (steps && data_thing.hasOwnProperty('rows')) {
+          if (data_thing.hasOwnProperty('rows')) {
             const {rows, new_columns} = transform(data_thing.rows, steps)
-            data_thing.rows = rows
-            data_thing.columns = [...data_thing.columns, ...new_columns]
-            return data_thing
-          } else if (!steps && data_thing.hasOwnProperty('rows')) {
-            return data_thing
+            return {
+              ...data_thing,
+              rows: rows,
+              columns: [...data_thing.columns, ...new_columns]
+            }
           } else {
-            // data is not loaded yet, so we set rows
             data_thing.rows = []
             return data_thing
           }
