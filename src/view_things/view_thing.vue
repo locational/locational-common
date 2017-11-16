@@ -78,7 +78,9 @@
 
         return data_things.map(data_thing => {
           if (data_thing.hasOwnProperty('rows')) {
-            data_thing.rows = transform(data_thing.rows, steps)
+            const {rows, new_columns} = transform(data_thing.rows, steps)
+            data_thing.rows = rows
+            data_thing.columns = [...data_thing.columns, ...new_columns]
             return data_thing
           }
 
