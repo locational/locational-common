@@ -77,19 +77,18 @@
         const steps = this.view_thing.steps
 
         return data_things.map(data_thing => {
-          if (data_thing.hasOwnProperty('rows')) {
+          if (steps && data_thing.hasOwnProperty('rows')) {
             const {rows, new_columns} = transform(data_thing.rows, steps)
             data_thing.rows = rows
             data_thing.columns = [...data_thing.columns, ...new_columns]
             return data_thing
-          }
-
-          if (!data_thing.hasOwnProperty('steps')) {
+          } else if (!steps && data_thing.hasOwnProperty('rows')) {
+            return data_thing
+          } else {
+            // data is not loaded yet, so we set rows
+            data_thing.rows = []
             return data_thing
           }
-
-          data_thing.rows = []
-          return data_thing
         })
       }
     }

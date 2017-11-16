@@ -21,9 +21,9 @@ export function transform(input, steps) {
     const new_columns = steps.map(step => {
         if (step.type === 'map') {
             return {
-                "label": step.output_field,
-                "field": step.output_field,
-                "type": typeof new_rows[0][step.output_field]
+                label: step.output_field,
+                field: step.output_field,
+                type: typeof new_rows[0][step.output_field]
             }
         }
         return false
